@@ -5,8 +5,7 @@ export interface Props {
 }
 
 const { title } = Astro.props;
-
-import Test from '../components/test.svelte';
+import Audio from '../components/audio.svelte';
 ---
 
 <!DOCTYPE html>
@@ -20,11 +19,11 @@ import Test from '../components/test.svelte';
 	</head>
 	<body>
 		<nav class=" text-white text-xl font-semibold flex flex-row gap-x-16 p-4">
-			<a href="/test">Home</a>
+			<a>Home</a>
 			<a>Search</a>
 			<a>Library</a>
+			<Audio client:visible></Audio>
 		</nav>
-		<Test client:only="svelte"></Test>
 		<slot />
 	</body>
 </html>
