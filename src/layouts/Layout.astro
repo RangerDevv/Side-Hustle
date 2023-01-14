@@ -1,13 +1,16 @@
 ---
 export interface Props {
 	title: string;
+	// song: string;
 }
 
 const { title } = Astro.props;
+
+import Test from '../components/test.svelte';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-black">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -16,20 +19,14 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<nav class=" text-white text-xl font-semibold flex flex-row gap-x-16 p-4">
+			<a href="/test">Home</a>
+			<a>Search</a>
+			<a>Library</a>
+		</nav>
+		<Test client:only="svelte"></Test>
 		<slot />
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
 </style>
